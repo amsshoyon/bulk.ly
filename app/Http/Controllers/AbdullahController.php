@@ -11,7 +11,7 @@ class AbdullahController extends Controller
 {
     public function index(){
         $posts = BufferPosting::paginate(10);
-        $groups = SocialPostGroups::get();
+        $groups = SocialPostGroups::distinct()->get(['type']);
         return view('pages.abdullah')-> with(compact('posts', 'groups'));
     }
 
@@ -28,15 +28,17 @@ class AbdullahController extends Controller
         }
         if(isset($request['group_filter'])){
             $group = $request['group_filter'];
+            $groups = SocialPostGroups::where('type', '$group')->get();
         }
 
         $posts = BufferPosting::where('post_text', 'like', '%'.$keyword.'%')
                     ->where('sent_at', 'like', '%'.$date.'%')
-                    ->where('group_id', 'like', '%'.$group.'%')
+                    ->where('group_id', 'like', '%'.$data->id.'%')
                     ->orderBy('id', 'desc')
                     ->paginate(10);
 
         $groups = SocialPostGroups::get();
+
         return view('pages.abdullah')-> with(compact('posts', 'keyword', 'groups'));  
          
     }

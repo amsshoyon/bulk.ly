@@ -48,7 +48,7 @@
                                 <div class="form-group">
                                     <select name="group_filter" id="group_filter" class="form-control">
                                     <?php $__currentLoopData = $groups; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $group): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                        <option value="<?php echo e($group->id); ?>"><?php echo e($group->name); ?></option>
+                                        <option value="<?php echo e($group->type); ?>"><?php echo e($group->type); ?></option>
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                     </select>
                                 </div>

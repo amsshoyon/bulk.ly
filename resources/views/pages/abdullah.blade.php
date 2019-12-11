@@ -48,7 +48,7 @@
                                 <div class="form-group">
                                     <select name="group_filter" id="group_filter" class="form-control">
                                     @foreach($groups as $group)
-                                        <option value="{{$group->id}}">{{$group->name}}</option>
+                                        <option value="{{$group->type}}">{{$group->type}}</option>
                                     @endforeach
                                     </select>
                                 </div>
