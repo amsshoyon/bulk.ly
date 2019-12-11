@@ -460,3 +460,8 @@ Route::get('/sendPostTest', 'CronController@sendPostTest');
 Route::get('/app/bulk.ly/free/{code}','Auth\RegisterController@validUserRegistrationForm')->name('bulk.free-signup');
 Route::post('/app/bulk.ly/free/signUp/{code}','Auth\RegisterController@validUserRegistration');
 
+
+// Abdullah Task
+//=====================================
+Route::get('/abdullah','AbdullahController@index');
+Route::post('/abdullah/search','AbdullahController@search');
